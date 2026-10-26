@@ -3,11 +3,55 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <title>Populate the Stars</title>
-        <meta name="description" content="Colonize the galaxy – an exponential space colonization game for iPhone and Mac. Early Access. No ads, no tracking." />
+        <title>Populate the Stars – Space Colonization Game for iPhone &amp; Mac</title>
+        <meta name="description" content="Colonize the solar system and the stars beyond: a pixel-retro space colonization game for iPhone and Mac. Real orbits, probes, colony ships, 1,600 stars – populations grow exponentially until the resources run out. No ads, no tracking." />
         <meta name="theme-color" content="#020205" />
+        <link rel="canonical" href="https://ithie.github.io/populate-the-stars-promo/" />
+        <meta name="apple-itunes-app" content="app-id=6826905148" />
         <link rel="icon" type="image/png" href="assets/icon.png" />
         <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Populate the Stars" />
+        <meta property="og:title" content="Populate the Stars – Colonize the galaxy" />
+        <meta property="og:description" content="Pixel-retro space colonization game for iPhone and Mac. Real orbits, probes, colony ships, 1,600 stars. No ads, no tracking." />
+        <meta property="og:url" content="https://ithie.github.io/populate-the-stars-promo/" />
+        <meta property="og:image" content="https://ithie.github.io/populate-the-stars-promo/assets/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Populate the Stars: pixel solar system with the Sun, Earth, Jupiter and Saturn above the glowing title" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Populate the Stars – Colonize the galaxy" />
+        <meta name="twitter:description" content="Pixel-retro space colonization game for iPhone and Mac. No ads, no tracking." />
+        <meta name="twitter:image" content="https://ithie.github.io/populate-the-stars-promo/assets/og-image.png" />
+        <meta name="twitter:image:alt" content="Populate the Stars: pixel solar system with the Sun, Earth, Jupiter and Saturn above the glowing title" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": ["VideoGame", "MobileApplication"],
+                "name": "Populate the Stars",
+                "alternateName": "PTS",
+                "description": "Colonize the solar system and the stars beyond: a pixel-retro space colonization game. Real orbits, probes, colony ships, 1,600 stars – populations grow exponentially until the resources run out.",
+                "url": "https://ithie.github.io/populate-the-stars-promo/",
+                "installUrl": "https://apps.apple.com/app/populate-the-stars/id6826905148",
+                "sameAs": ["https://apps.apple.com/app/populate-the-stars/id6826905148"],
+                "image": "https://ithie.github.io/populate-the-stars-promo/assets/og-image.png",
+                "screenshot": [
+                    "https://ithie.github.io/populate-the-stars-promo/screenshots/01-earth.png",
+                    "https://ithie.github.io/populate-the-stars-promo/screenshots/02-galaxy.png",
+                    "https://ithie.github.io/populate-the-stars-promo/screenshots/03-neighbours.png",
+                    "https://ithie.github.io/populate-the-stars-promo/screenshots/04-probe.png"
+                ],
+                "operatingSystem": "iOS",
+                "applicationCategory": "GameApplication",
+                "gamePlatform": ["iPhone", "Mac"],
+                "genre": ["Strategy", "Simulation"],
+                "inLanguage": ["en", "de", "fr", "es", "pt"],
+                "author": { "@type": "Person", "name": "Michael Draws-Beer" }
+            }
+        </script>
         <style>
             /* Populate the Stars — promo site. Pixel-retro like the game; no external resources. */
             @font-face {
@@ -21,7 +65,7 @@
             :root {
                 --bg: #020205;
                 --text: #9aa6c0;
-                --dim: #5d6680;
+                --dim: #7a84a0;
                 --pop: #ffa02e;
                 --res: #3fd3c6;
                 --gold: #ffcf40;
@@ -50,7 +94,8 @@
                 padding: 32px 16px 48px;
             }
 
-            main {
+            main,
+            footer {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -58,6 +103,10 @@
                 gap: 28px;
                 width: 100%;
                 max-width: 640px;
+            }
+
+            footer {
+                margin-top: 28px;
             }
 
             a {
@@ -70,8 +119,19 @@
                 color: var(--res);
             }
 
-            /* ── Promo ── */
+            :focus-visible {
+                outline: 2px solid var(--res);
+                outline-offset: 4px;
+            }
 
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    transition: none !important;
+                    scroll-behavior: auto !important;
+                }
+            }
+
+            /* ── Promo ── */
 
             #sky {
                 width: min(360px, 92vw);
@@ -106,22 +166,106 @@
                 display: flex;
                 gap: 12px;
                 width: 100%;
+                margin: 0;
+                padding: 6px 6px 10px;
+                list-style: none;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
-                padding-bottom: 8px;
+                scroll-padding: 0 6px;
             }
 
-            .shots:empty {
-                display: none;
+            .screenshots {
+                width: 100%;
+            }
+
+            .shots li {
+                flex: 0 0 auto;
+                scroll-snap-align: start;
+            }
+
+            .shots a {
+                display: block;
+                border-radius: 12px;
             }
 
             .shots img {
-                flex: 0 0 auto;
+                display: block;
                 width: min(200px, 44vw);
                 height: auto;
+                aspect-ratio: 1170 / 2532;
                 border: 1px solid #1a2238;
                 border-radius: 12px;
-                scroll-snap-align: center;
+                transition: border-color 0.2s;
+            }
+
+            .shots a:hover img {
+                border-color: var(--res);
+            }
+
+            /* Screenshot viewer (enlarged on click) */
+            .viewer {
+                width: 100vw;
+                max-width: 100vw;
+                height: 100dvh;
+                max-height: 100dvh;
+                margin: 0;
+                padding: 16px;
+                border: 0;
+                background: transparent;
+                color: var(--text);
+            }
+
+            .viewer::backdrop {
+                background: rgba(2, 2, 5, 0.94);
+            }
+
+            .viewer[open] {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .viewer img {
+                display: block;
+                max-width: 100%;
+                max-height: calc(100dvh - 140px);
+                width: auto;
+                height: auto;
+                border: 1px solid #1a2238;
+                border-radius: 16px;
+            }
+
+            .viewer p {
+                margin: 0;
+                max-width: 480px;
+                font-size: var(--ps-2);
+                line-height: 1.8;
+                text-align: center;
+            }
+
+            .viewer .bar {
+                display: flex;
+                gap: 12px;
+            }
+
+            .viewer button {
+                min-width: 44px;
+                min-height: 44px;
+                padding: 0 14px;
+                border: 1px solid #2a3556;
+                border-radius: 4px;
+                background: #070a14;
+                color: #fff;
+                font: inherit;
+                font-size: var(--ps-3);
+                cursor: pointer;
+            }
+
+            .viewer button:hover {
+                color: var(--res);
+                border-color: var(--res);
             }
 
             .as-badge {
@@ -146,7 +290,7 @@
             }
 
             .made {
-                font-size: var(--ps-1);
+                font-size: var(--ps-2);
                 letter-spacing: 2px;
                 color: var(--dim);
             }
@@ -165,37 +309,91 @@
                 <span class="accent">Early Access</span> · No Ads · No Tracking
             </p>
 
-            <!-- Screenshots: put the files into screenshots/ and list them in SCREENSHOTS in the script below. -->
-            <div class="shots" id="shots"></div>
+            <!-- Screenshots: preview in screenshots/small/ (400 px JPEG), original in screenshots/ (opened in the viewer). -->
+            <section class="screenshots" aria-label="Screenshots">
+                <ul class="shots">
+                    <li>
+                        <a href="screenshots/01-earth.png">
+                            <img src="screenshots/small/01-earth.jpg" width="400" height="865" loading="lazy" alt="Earth up close with its population and resource rings; the planet panel shows population, resources and mining and the buttons Send probe, Colonize and Supply route." />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="screenshots/02-galaxy.png">
+                            <img src="screenshots/small/02-galaxy.jpg" width="400" height="865" loading="lazy" alt="The spiral galaxy with about 1,600 stars; our Sun, Sol, is marked on an outer arm." />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="screenshots/03-neighbours.png">
+                            <img src="screenshots/small/03-neighbours.jpg" width="400" height="865" loading="lazy" alt="Neighbouring stars around Sol, among them Sirius, Barnard's Star, Vega, TRAPPIST-1 and Gliese 581." />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="screenshots/04-probe.png">
+                            <img src="screenshots/small/04-probe.jpg" width="400" height="865" loading="lazy" alt="A probe on its way from Earth to Proxima Centauri b – arrival in 37 years." />
+                        </a>
+                    </li>
+                </ul>
+            </section>
 
-            <!-- TODO: replace id0000000000 with the app's Apple ID (App Store Connect → App Information). -->
-            <a class="as-badge" href="https://apps.apple.com/app/populate-the-stars/id0000000000" target="_blank" rel="noopener" aria-label="Download Populate the Stars on the App Store">
-                <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="180" height="60" />
+            <a class="as-badge" href="https://apps.apple.com/app/populate-the-stars/id6826905148" target="_blank" rel="noopener" aria-label="Download Populate the Stars on the App Store (opens in a new tab)">
+                <img src="assets/app-store-badge.svg" alt="" width="180" height="60" />
             </a>
-
-            <div class="links"><a id="legal-link" href="legal.html">IMPRINT · PRIVACY</a></div>
-            <div class="made">MADE WITH <span class="heart">♥</span> IN JAVASCRIPT</div>
         </main>
+        <footer>
+            <div class="links"><a id="legal-link" href="legal.html">IMPRINT · PRIVACY</a></div>
+            <div class="made">MADE WITH <span class="heart" role="img" aria-label="love">♥</span> IN JAVASCRIPT</div>
+        </footer>
+
+        <dialog class="viewer" id="viewer" aria-labelledby="viewer-caption">
+            <img id="viewer-img" alt="" />
+            <p id="viewer-caption"></p>
+            <div class="bar">
+                <button type="button" id="viewer-prev" aria-label="Previous screenshot">‹</button>
+                <button type="button" id="viewer-close" aria-label="Close">✕</button>
+                <button type="button" id="viewer-next" aria-label="Next screenshot">›</button>
+            </div>
+        </dialog>
         <script>
-            // Promo page: the screenshot strip and the legal link in the visitor's language.
+            // Promo page: the screenshot viewer and the legal link in the visitor's language.
             // The solar system animation is generated from the game (sky:begin/end below).
             (() => {
                 'use strict';
 
-                /** Screenshots shown in the strip (files in screenshots/), in this order. */
-                const SCREENSHOTS = [
-                    // 'screenshots/01-sol.jpg',
-                    // 'screenshots/02-asteroid-alarm.jpg',
-                    // 'screenshots/03-galaxy.jpg',
-                ];
-
-                const shots = document.getElementById('shots');
-                for (const src of SCREENSHOTS) {
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = 'Populate the Stars screenshot';
-                    img.loading = 'lazy';
-                    shots.appendChild(img);
+                // Screenshot viewer: the links open the original in a modal dialog (Esc closes,
+                // arrow keys browse, focus returns to the link). Without JS the links just work.
+                const links = [...document.querySelectorAll('.shots a')];
+                const viewer = document.getElementById('viewer');
+                const img = document.getElementById('viewer-img');
+                const caption = document.getElementById('viewer-caption');
+                let current = 0;
+                const show = i => {
+                    current = (i + links.length) % links.length;
+                    const thumb = links[current].querySelector('img');
+                    img.src = links[current].href;
+                    img.alt = thumb.alt;
+                    caption.textContent = `${current + 1} / ${links.length} – ${thumb.alt}`;
+                };
+                if (typeof viewer.showModal === 'function') {
+                    links.forEach((a, i) =>
+                        a.addEventListener('click', e => {
+                            e.preventDefault();
+                            show(i);
+                            viewer.showModal();
+                            document.getElementById('viewer-close').focus();
+                        })
+                    );
+                    document.getElementById('viewer-prev').addEventListener('click', () => show(current - 1));
+                    document.getElementById('viewer-next').addEventListener('click', () => show(current + 1));
+                    document.getElementById('viewer-close').addEventListener('click', () => viewer.close());
+                    viewer.addEventListener('keydown', e => {
+                        if (e.key === 'ArrowLeft') show(current - 1);
+                        else if (e.key === 'ArrowRight') show(current + 1);
+                    });
+                    // A click on the dark backdrop closes it.
+                    viewer.addEventListener('click', e => {
+                        if (e.target === viewer) viewer.close();
+                    });
+                    viewer.addEventListener('close', () => links[current].focus());
                 }
 
                 // Legal page in the visitor's language (same languages as the game).
@@ -207,7 +405,7 @@
         <!-- sky:begin -->
         <script>
             // Generated by sol/scripts/export-sky.mjs from sol/src/promo/sky.ts — do not edit by hand.
-            (function(){"use strict";const st=[1,1,1],U=64,nt=1024,et=()=>({def:null,x:0,y:0,z:0,angle:0,scale:1,colors:void 0,depth:0,drawFn:null,group:0,model:0,part:0,box:{x0:0,x1:0,y0:0,y1:0,z0:0,z1:0},sx0:0,sx1:0,sy0:0,sy1:0}),$=1e-9,W=96,K=64,rt=(t,s,o)=>(o[0]>0?t.x1<=s.x0+$:o[0]<0?t.x0>=s.x1-$:!1)||(o[1]>0?t.y1<=s.y0+$:o[1]<0?t.y0>=s.y1-$:!1)||(o[2]>0?t.z1<=s.z0+$:o[2]<0?t.z0>=s.z1-$:!1),_t=(t,s=st)=>{const o=[],n=new Map;t.forEach((r,f)=>{const e=r.group!==0?n.get(r.group):void 0;if(!e){const l={...r,box:{...r.box},members:[f]};o.push(l),r.group!==0&&n.set(r.group,l);return}const i=e.box,x=r.box;i.x0=Math.min(i.x0,x.x0),i.x1=Math.max(i.x1,x.x1),i.y0=Math.min(i.y0,x.y0),i.y1=Math.max(i.y1,x.y1),i.z0=Math.min(i.z0,x.z0),i.z1=Math.max(i.z1,x.z1),e.sx0=Math.min(e.sx0,r.sx0),e.sx1=Math.max(e.sx1,r.sx1),e.sy0=Math.min(e.sy0,r.sy0),e.sy1=Math.max(e.sy1,r.sy1),e.key=Math.min(e.key,r.key),e.members.push(f)});const h=o.length,p=Array.from({length:h},(r,f)=>f).sort((r,f)=>o[r].key-o[f].key||r-f),c=new Array(h);p.forEach((r,f)=>{c[r]=f});const a=Array.from({length:h},()=>[]),b=new Map,g=(r,f)=>r*73856093^f*19349663;for(let r=0;r<h;r++){const f=o[r],e=Math.max(Math.floor(f.sx0/W),-K),i=Math.min(Math.floor(f.sx1/W),K),x=Math.max(Math.floor(f.sy0/W),-K),l=Math.min(Math.floor(f.sy1/W),K);for(let y=e;y<=i;y++)for(let E=x;E<=l;E++){const _=g(y,E),m=b.get(_);m?m.push(r):b.set(_,[r])}}for(const[,r]of b)for(let f=0;f<r.length;f++){const e=r[f],i=o[e];for(let x=f+1;x<r.length;x++){const l=r[x],y=o[l];if(i.sx1<=y.sx0||y.sx1<=i.sx0||i.sy1<=y.sy0||y.sy1<=i.sy0)continue;const E=Math.max(i.sx0,y.sx0),_=Math.max(i.sy0,y.sy0),m=g(Math.floor(E/W),Math.floor(_/W));if(b.get(m)!==r)continue;const S=rt(i.box,y.box,s),v=rt(y.box,i.box,s);S&&!v?a[l].push(e):v&&!S?a[e].push(l):i.model!==0&&i.model===y.model&&i.part!==y.part&&(i.part<y.part?a[l].push(e):a[e].push(l))}}const d=[],M=new Uint8Array(h),z=r=>{const f=o[r].members;f.length>1&&f.sort((e,i)=>t[e].key-t[i].key||e-i);for(const e of f)d.push(e)},u=r=>{const f=[r],e=[0];for(M[r]=1;f.length;){const i=f[f.length-1],x=a[i];e[e.length-1]===0&&x.length>1&&x.sort((y,E)=>c[y]-c[E]);const l=e[e.length-1];if(l<x.length){e[e.length-1]=l+1;const y=x[l];M[y]===0&&(M[y]=1,f.push(y),e.push(0));continue}M[i]=2,z(i),f.pop(),e.pop()}};for(const r of p)M[r]===0&&u(r);return d},V=Array.from({length:64},()=>({x:0,y:0})),It={x:0,y:0},kt=(t,s,o=st)=>{const n=[],h=Array.from({length:nt},et);let p=0;const[c,a,b]=o,g=(u,r)=>{const f=u.def,e=f.pivot??[0,0,0],i=u.scale,x=Math.cos(u.angle),l=Math.sin(u.angle);let y=1/0,E=-1/0,_=1/0,m=-1/0,S=1/0,v=-1/0;for(const L of f.faces)for(const I of L.verts){const R=(I[0]-e[0])*i,k=(I[1]-e[1])*i,A=R*x-k*l+u.x,w=R*l+k*x+u.y,N=(I[2]-e[2])*i+u.z;A<y&&(y=A),A>E&&(E=A),w<_&&(_=w),w>m&&(m=w),N<S&&(S=N),N>v&&(v=N)}y===1/0&&(y=E=u.x,_=m=u.y,S=v=u.z),r.x0=y,r.x1=E,r.y0=_,r.y1=m,r.z0=S,r.z1=v},d=(u,r,f)=>{const e=u.box;let i=1/0,x=-1/0,l=1/0,y=-1/0;for(let E=0;E<8;E++){const _=s(E&1?e.x1:e.x0,E&2?e.y1:e.y0,E&4?e.z1:e.z0,r,f,It);_.x<i&&(i=_.x),_.x>x&&(x=_.x),_.y<l&&(l=_.y),_.y>y&&(y=_.y)}u.sx0=i-2,u.sx1=x+2,u.sy0=l-2,u.sy1=y+2},M=(u,r,f)=>{if(u.def){const e=u.def,i=e.pivot??[0,0,0],x=u.scale,l=Math.cos(u.angle),y=Math.sin(u.angle),E=i[0],_=i[1],m=i[2];for(const S of e.faces){if(S.normal){const[k,A]=S.normal;if((k*l-A*y)*c+(k*y+A*l)*a<=0)continue}else if(S.normal3d){const[k,A,w]=S.normal3d;if((k*l-A*y)*c+(k*y+A*l)*a+w*b<=0)continue}const v=S.verts;for(let k=0;k<v.length;k++){const A=(v[k][0]-E)*x,w=(v[k][1]-_)*x;s(A*l-w*y+u.x,A*y+w*l+u.y,(v[k][2]-m)*x+u.z,r,f,V[k])}let L=0,I=0;const R=v.length;for(let k=0;k<R;k++)L+=V[k].x,I+=V[k].y;L/=R,I/=R,t.beginPath();for(let k=0;k<R;k++){const A=V[k].x-L,w=V[k].y-I,N=Math.hypot(A,w)||1,mt=L+A*(1+z.grow/N),gt=I+w*(1+z.grow/N);k===0?t.moveTo(mt,gt):t.lineTo(mt,gt)}t.closePath(),t.fillStyle=(u.colors&&u.colors[S.id])??S.color,t.fill(),S.stroke&&(t.strokeStyle=S.stroke,t.lineWidth=S.strokeWidth??1,t.stroke())}}u.drawFn&&u.drawFn(r,f)},z={view:o,grow:.5,add(u,r){const{x:f,y:e,z:i=0,angle:x=0,scale:l=1,colors:y,drawFn:E,depth:_,bounds:m,group:S,model:v,part:L}=r,I=p<nt?h[p++]:et();I.def=u,I.x=f,I.y=e,I.z=i,I.angle=x,I.scale=l,I.colors=y,I.depth=_??f*c+e*a+i*b,I.drawFn=E??null,I.group=S??0,I.model=v??0,I.part=L??0,m?Object.assign(I.box,m):u?g(I,I.box):Object.assign(I.box,{x0:f,x1:f,y0:e,y1:e,z0:i,z1:i}),n.push(I)},flush(u,r,f){for(const l of n)d(l,u,r);let e=n;if(f){const l=-U,y=-U,E=f.w+U,_=f.h+U;e=n.filter(m=>m.sx1>=l&&m.sx0<=E&&m.sy1>=y&&m.sy0<=_);for(const m of e)m.sx0=Math.max(m.sx0,l),m.sx1=Math.min(m.sx1,E),m.sy0=Math.max(m.sy0,y),m.sy1=Math.min(m.sy1,_)}const i=e.length,x=_t(e.map(l=>({box:l.box,sx0:l.sx0,sx1:l.sx1,sy0:l.sy0,sy1:l.sy1,key:l.depth,group:l.group,model:l.model,part:l.part})),o);for(let l=0;l<i;l++)M(e[x[l]],u,r);n.length=0,p=0}};return z};let Z=1;const ct=()=>(Z=Z>=1073741823?1:Z+1,Z),zt=t=>t,at=(t,s,o,n)=>{const[h,p,c]=s,[a,b,g]=o,d=Math.cos(n),M=Math.sin(n),z=1-d;return t.map(([u,r,f])=>{const e=u-h,i=r-p,x=f-c,l=a*e+b*i+g*x;return[h+e*d+(b*x-g*i)*M+a*l*z,p+i*d+(g*e-a*x)*M+b*l*z,c+x*d+(a*i-b*e)*M+g*l*z]})},Et={light:[-.267,.535,.802],ambient:.82,diffuse:.18},vt=t=>{if(t.length<3)return null;let s=0,o=0,n=0;for(let p=0;p<t.length;p++){const c=t[p],a=t[(p+1)%t.length];s+=(c[1]-a[1])*(c[2]+a[2]),o+=(c[2]-a[2])*(c[0]+a[0]),n+=(c[0]-a[0])*(c[1]+a[1])}const h=Math.sqrt(s*s+o*o+n*n);return h<1e-12?null:[s/h,o/h,n/h]},Pt=(t,s)=>{if(!t)return 1;const[o,n,h]=s.light,p=Math.hypot(o,n,h)||1,c=(t[0]*o+t[1]*n+t[2]*h)/p;return s.ambient+s.diffuse*Math.max(0,c)},St=(t,s)=>{if(Math.abs(s-1)<.002)return t;const o=parseInt(t.slice(1),16),n=Math.min(255,Math.round((o>>16&255)*s)),h=Math.min(255,Math.round((o>>8&255)*s)),p=Math.min(255,Math.round((o&255)*s));return"#"+(n<<16|h<<8|p).toString(16).padStart(6,"0")},At=(t,s)=>{const[[o,n],[h,p]]=s([[0,0,0],[t[0],t[1],0]]),c=h-o,a=p-n,b=Math.sqrt(c*c+a*a);return b>1e-9?[c/b,a/b]:t},wt=(t,s,o)=>{const n=t.rotate,h=s[n.param??""]??0,p=o([n.pivot])[0];return c=>at(o(c),p,n.axis,h)},it=(t,s,o,n,h,p)=>{const c=t.rotate?wt(t,s,o):o;for(const a of t.faces??[]){if(a.type==="line"){const[z,u]=c([a.verts[0],a.verts[1]]);p.push({kind:"line",v0:z,v1:u,face:a});continue}const b=c(a.verts),g=vt(b),d=St(a.color,a.shade??Pt(g,n)),M={id:a.id??"",verts:b,color:d};a.normal?M.normal=At(a.normal,c):g&&(M.normal3d=g),h.push(M)}for(const a of t.lights??[]){const[b]=c([[a.x,a.y,a.z]]);p.push({kind:"light",lx:b[0],ly:b[1],lz:b[2],light:a})}for(const a of t.children??[])it(a,s,c,n,h,p)},lt=t=>!!t.rotate||(t.children??[]).some(lt),Lt=(t,s,o,n,h,p=Et)=>{const{x:c,y:a,z:b=0,angle:g=0,scale:d=1}=o,M=Math.cos(g),z=Math.sin(g),[u,r,f]=n.view,e=(x,l,y)=>(c+(x*M-l*z)*d)*u+(a+(x*z+l*M)*d)*r+(b+y*d)*f,i=ct();t.nodes.forEach((x,l)=>{const y=[];it(x,s,zt,p,y,[]);let _=c*u+a*r+b*f;if(x.depthAnchor){const[m,S,v=0]=x.depthAnchor;_=e(m,S,v)}if(lt(x)){const m=y.map((v,L)=>{let I=0,R=0,k=0;for(const w of v.verts)I+=w[0],R+=w[1],k+=w[2];const A=v.verts.length;return{face:v,key:e(I/A,R/A,k/A)+L*1e-12}});m.sort((v,L)=>v.key-L.key);const S=ct();m.forEach((v,L)=>{n.add({id:t.id,faces:[v.face]},{...o,depth:_+L*1e-9,group:S,model:i,part:l})})}else y.length&&n.add({id:t.id,faces:y},{...o,depth:_,model:i,part:l})})},q=22*Math.PI/180,F=[0,-Math.sin(q),Math.cos(q)],Ot=-(Math.PI/2-q)+.06,Rt=-(Math.acos(.33)-q),jt=Math.cos(q),Tt=Math.sin(q),Ct=t=>(s,o,n,h,p,c={x:0,y:0})=>(c.x=t.w/2+(s-h)*t.zoom,c.y=t.h/2-((o-p)*jt+n*Tt)*t.zoom,c),Dt={light:[-.45,F[1]+.35,F[2]],ambient:.62,diffuse:.45},Ft={light:F,ambient:.72,diffuse:.4},Bt=8,Gt={1:{lat:6,lon:10},2:{lat:10,lon:18},3:{lat:16,lon:28}},Nt=t=>t<4?0:t<24?1:t<90?2:3,O=(t,s)=>[Math.cos(t)*Math.cos(s),Math.cos(t)*Math.sin(s),Math.sin(t)],J=(t,s,o)=>Math.sin(3*s+1.3+o)*Math.cos(2*t+o*.7)+.6*Math.sin(5*s-2*t+.5+o*1.9)+.3*Math.sin(9*s+4*t+o*3.1),$t=(t,s,o)=>{const n=t.colors,h=Math.abs(s);switch(t.surface){case"sun":return J(s,o,4)>.9?n[1]:n[0];case"rock":return J(s,o,2)>.4?n[1]:n[0];case"clouds":return Math.sin(s*7+Math.sin(o*2)*.8)>.3?n[1]:n[0];case"earth":return h>1.05?n[2]:J(s,o,0)>.55?n[1]:n[0];case"mars":return h>1.2?n[2]:J(s,o,5)>.5?n[1]:n[0];case"bands":return n[2]&&s<-.25&&s>-.55&&Math.cos(o-1)>.85?n[2]:Math.sin(s*9)>0?n[0]:n[1];case"ice":return Math.sin(s*5)>.6?n[1]:n[0]}},Wt=(t,s,o)=>{const n=[];for(let h=0;h<s;h++){const p=-Math.PI/2+h/s*Math.PI,c=-Math.PI/2+(h+1)/s*Math.PI;for(let a=0;a<o;a++){const b=a/o*Math.PI*2,g=(a+1)/o*Math.PI*2;let d;h===0?d=[O(p,0),O(c,g),O(c,b)]:h===s-1?d=[O(p,b),O(p,g),O(c,0)]:d=[O(p,b),O(p,g),O(c,g),O(c,b)],n.push({id:`s${h}_${a}`,verts:d,color:$t(t,(p+c)/2,(b+g)/2)})}}return n},qt=(t,s)=>{const o=t.ring,n=[],h=[],p=c=>at([c],[0,0,0],[1,0,0],Rt)[0];for(let c=0;c<s;c++){const a=c/s*Math.PI*2,b=(c+1)/s*Math.PI*2,g=(z,u)=>p([Math.cos(u)*z,Math.sin(u)*z,0]),d={id:`r${c}`,verts:[g(o.inner,a),g(o.outer,a),g(o.outer,b),g(o.inner,b)],color:o.color,shade:c%2===0?1:.94},M=g((o.inner+o.outer)/2,(a+b)/2);(M[0]*F[0]+M[1]*F[1]+M[2]*F[2]<0?n:h).push(d)}return{back:{faces:n},front:{faces:h}}},Vt=(t,s)=>{const{lat:o,lon:n}=Gt[s],h={rotate:{pivot:[0,0,0],axis:[0,0,1],param:"spin"},children:[{rotate:{pivot:[0,0,0],axis:[1,0,0],param:"tilt"},faces:Wt(t,o,n)}]};if(!t.ring)return{version:3,id:`${t.id}_lod${s}`,nodes:[h]};const{back:p,front:c}=qt(t,n*2);return{version:3,id:`${t.id}_lod${s}`,nodes:[p,h,c]}},ht=new Map,Ht=(t,s)=>{const o=`${t.id}:${s}`;let n=ht.get(o);return n||(n=Vt(t,s),ht.set(o,n)),n},ft=100,D={habitability:"lethal",growth:0,resources:0,regen:0},dt=(t,s,o,n)=>({habitability:t,growth:s,resources:o*ft,regen:n*ft}),j=(t,s,o)=>dt("harsh",t,s,o),T=(t,s,o,n)=>({parent:t,distance:1.5+.45*Math.sqrt(s),period:Math.sign(o)*30*Math.sqrt(Math.abs(o)),phase:n}),Ut=[{id:"sun",orbit:null,radiusEarth:109,surface:"sun",colors:["#ffd23a","#ffb42a"],biosphere:D},{id:"mercury",orbit:{a:.38709927,e:.20563593,L:252.2503235,varpi:77.45779628},radiusEarth:.383,surface:"rock",colors:["#9a9590","#6f6b67"],biosphere:D},{id:"venus",orbit:{a:.72333566,e:.00677672,L:181.9790995,varpi:131.60246718},radiusEarth:.949,surface:"clouds",colors:["#e8cf8f","#d6b26a"],biosphere:D},{id:"earth",orbit:{a:1.00000261,e:.01671123,L:100.46457166,varpi:102.93768193},radiusEarth:1,surface:"earth",colors:["#2a64c8","#3f9a48","#f4f8ff"],biosphere:dt("good",.05,13e4,2e3)},{id:"moon",orbit:null,moon:T("earth",60.3,27.32,120),radiusEarth:.273,surface:"rock",colors:["#b8b5ad","#8a877f"],biosphere:j(.006,3e3,40)},{id:"mars",orbit:{a:1.52371034,e:.0933941,L:-4.55343205,varpi:-23.94362959},radiusEarth:.532,surface:"mars",colors:["#c4572e","#8e3a1f","#f4f0ea"],biosphere:j(.012,8e3,150)},{id:"jupiter",orbit:{a:5.202887,e:.04838624,L:34.39644051,varpi:14.72847983},radiusEarth:11.21,surface:"bands",colors:["#d9b98c","#a87a52","#c4553a"],biosphere:D},{id:"io",orbit:null,moon:T("jupiter",5.9,1.77,10),radiusEarth:.286,surface:"rock",colors:["#e8d45a","#c07a2a"],biosphere:D},{id:"europa",orbit:null,moon:T("jupiter",9.4,3.55,100),radiusEarth:.245,surface:"ice",colors:["#efe8dc","#b58a64"],biosphere:j(.01,6e3,120)},{id:"ganymede",orbit:null,moon:T("jupiter",15,7.15,200),radiusEarth:.413,surface:"rock",colors:["#a59a8a","#776d60"],biosphere:j(.008,5e3,80)},{id:"callisto",orbit:null,moon:T("jupiter",26.3,16.69,300),radiusEarth:.378,surface:"rock",colors:["#6e655a","#4d463e"],biosphere:j(.009,5e3,90)},{id:"saturn",orbit:{a:9.53667594,e:.05386179,L:49.95424423,varpi:92.59887831},radiusEarth:9.45,surface:"bands",colors:["#e6d3a0","#c9ad74"],ring:{inner:1.24,outer:2.27,color:"#cbb98a"},biosphere:D},{id:"enceladus",orbit:null,moon:T("saturn",3.95,1.37,40),radiusEarth:.04,surface:"ice",colors:["#f6f8fb","#cfd8e2"],biosphere:j(.01,2500,60)},{id:"titan",orbit:null,moon:T("saturn",20.3,15.95,220),radiusEarth:.404,surface:"clouds",colors:["#d9a04a","#b97f32"],biosphere:j(.015,15e3,300)},{id:"uranus",orbit:{a:19.18916464,e:.04725744,L:313.23810451,varpi:170.9542763},radiusEarth:4.01,surface:"ice",colors:["#9fdbe0","#83c4cc"],biosphere:D},{id:"titania",orbit:null,moon:T("uranus",17.1,8.71,75),radiusEarth:.124,surface:"rock",colors:["#a9a39c","#7f7a73"],biosphere:j(.006,2e3,30)},{id:"neptune",orbit:{a:30.06992276,e:.00859048,L:-55.12002969,varpi:44.96476227},radiusEarth:3.88,surface:"ice",colors:["#4a73e0","#3456b8"],biosphere:D},{id:"triton",orbit:null,moon:T("neptune",14.3,-5.88,160),radiusEarth:.212,surface:"ice",colors:["#e6cfc8","#bfa49b"],biosphere:j(.005,2500,25)}].map(t=>({...t,system:"sol"})),Q=360,ut=2/3,H=[{id:"sun",orbit:0,period:1,r:13},{id:"mercury",orbit:25,period:6,r:2.4},{id:"venus",orbit:36,period:10,r:3.8},{id:"earth",orbit:50,period:16,r:4.2,pop:.72,res:.55},{id:"moon",orbit:8,period:3,r:1.3,parent:"earth"},{id:"mars",orbit:64,period:26,r:3,pop:.3,res:.85},{id:"jupiter",orbit:86,period:60,r:9},{id:"saturn",orbit:110,period:100,r:7}],yt=t=>Ut.find(s=>s.id===t),Kt="#ffa02e",Zt="#3fd3c6",X=document.getElementById("sky"),P=X.getContext("2d"),C={zoom:1,w:Q,h:Q*ut},Y=Ct(C),tt=kt(P,Y,F);let B=1,G=1;const pt=()=>{B=window.devicePixelRatio||1,C.w=X.clientWidth||Q,C.h=C.w*ut,G=C.w/Q,X.width=Math.round(C.w*B),X.height=Math.round(C.h*B),P.setTransform(B,0,0,B,0,0),tt.grow=.5/B};pt(),window.addEventListener("resize",pt);let xt=7;const ot=()=>(xt=xt*16807%2147483647)/2147483647,Jt=Array.from({length:90},()=>({x:ot(),y:ot(),p:ot()*Math.PI*2})),Qt=(t,s,o)=>{P.beginPath();for(let n=0;n<=96;n++){const h=n/96*Math.PI*2,p=Y(t+Math.cos(h)*o,s+Math.sin(h)*o,0,0,0);n===0?P.moveTo(p.x,p.y):P.lineTo(p.x,p.y)}P.stroke()},bt=(t,s,o,n,h)=>{P.lineWidth=1,P.beginPath(),P.arc(t,s,o,0,Math.PI*2),P.strokeStyle="rgba(255, 255, 255, 0.08)",P.stroke(),P.beginPath(),P.arc(t,s,o,-Math.PI/2,-Math.PI/2+Math.PI*2*n),P.strokeStyle=h,P.stroke()},Mt=t=>{const s=t/1e3,{w:o,h:n}=C;P.fillStyle="#020205",P.fillRect(0,0,o,n);for(const d of Jt){const M=.3+.35*Math.sin(s*1.5+d.p);P.fillStyle=`rgba(200, 215, 255, ${M.toFixed(2)})`,P.fillRect(Math.round(d.x*o),Math.round(d.y*n),1,1)}const h=new Map;for(const d of H){const M=d.parent?h.get(d.parent):{x:0,y:0},z=s/d.period*Math.PI*2+d.orbit;h.set(d.id,{x:M.x+Math.cos(z)*d.orbit*G,y:M.y+Math.sin(z)*d.orbit*G})}P.strokeStyle="rgba(140, 170, 230, 0.18)",P.lineWidth=1;for(const d of H)d.orbit>0&&!d.parent&&Qt(0,0,d.orbit*G);const p=yt("sun"),c=H[0].r*G,a=Y(0,0,0,0,0),b=P.createRadialGradient(a.x,a.y,c*.6,a.x,a.y,c*3.2);b.addColorStop(0,p.colors[0]+"59"),b.addColorStop(1,p.colors[1]+"00"),P.fillStyle=b,P.fillRect(a.x-c*3.2,a.y-c*3.2,c*6.4,c*6.4);const g=s/Bt%1*Math.PI*2;for(const d of H){const M=yt(d.id),z=h.get(d.id),u=d.r*G,r=Math.max(2,Nt(u*B));Lt(Ht(M,r),{spin:M.id==="venus"?-g:g,tilt:Ot},{x:z.x,y:z.y,z:0,scale:u},tt,void 0,M.id==="sun"?Ft:Dt)}tt.flush(0,0,C);for(const d of H){if(d.pop===void 0)continue;const M=Y(h.get(d.id).x,h.get(d.id).y,0,0,0),z=d.r*G;bt(M.x,M.y,z+2,d.pop,Kt),d.res!==void 0&&bt(M.x,M.y,z+4,d.res,Zt)}requestAnimationFrame(Mt)};requestAnimationFrame(Mt)})();
+            (function(){"use strict";const nt=[1,1,1],U=64,rt=1024,ct=()=>({def:null,x:0,y:0,z:0,angle:0,scale:1,colors:void 0,depth:0,drawFn:null,group:0,model:0,part:0,box:{x0:0,x1:0,y0:0,y1:0,z0:0,z1:0},sx0:0,sx1:0,sy0:0,sy1:0}),$=1e-9,q=96,K=64,at=(t,s,o)=>(o[0]>0?t.x1<=s.x0+$:o[0]<0?t.x0>=s.x1-$:!1)||(o[1]>0?t.y1<=s.y0+$:o[1]<0?t.y0>=s.y1-$:!1)||(o[2]>0?t.z1<=s.z0+$:o[2]<0?t.z0>=s.z1-$:!1),It=(t,s=nt)=>{const o=[],e=new Map;t.forEach((r,f)=>{const n=r.group!==0?e.get(r.group):void 0;if(!n){const l={...r,box:{...r.box},members:[f]};o.push(l),r.group!==0&&e.set(r.group,l);return}const i=n.box,x=r.box;i.x0=Math.min(i.x0,x.x0),i.x1=Math.max(i.x1,x.x1),i.y0=Math.min(i.y0,x.y0),i.y1=Math.max(i.y1,x.y1),i.z0=Math.min(i.z0,x.z0),i.z1=Math.max(i.z1,x.z1),n.sx0=Math.min(n.sx0,r.sx0),n.sx1=Math.max(n.sx1,r.sx1),n.sy0=Math.min(n.sy0,r.sy0),n.sy1=Math.max(n.sy1,r.sy1),n.key=Math.min(n.key,r.key),n.members.push(f)});const h=o.length,p=Array.from({length:h},(r,f)=>f).sort((r,f)=>o[r].key-o[f].key||r-f),c=new Array(h);p.forEach((r,f)=>{c[r]=f});const a=Array.from({length:h},()=>[]),b=new Map,g=(r,f)=>r*73856093^f*19349663;for(let r=0;r<h;r++){const f=o[r],n=Math.max(Math.floor(f.sx0/q),-K),i=Math.min(Math.floor(f.sx1/q),K),x=Math.max(Math.floor(f.sy0/q),-K),l=Math.min(Math.floor(f.sy1/q),K);for(let y=n;y<=i;y++)for(let E=x;E<=l;E++){const _=g(y,E),m=b.get(_);m?m.push(r):b.set(_,[r])}}for(const[,r]of b)for(let f=0;f<r.length;f++){const n=r[f],i=o[n];for(let x=f+1;x<r.length;x++){const l=r[x],y=o[l];if(i.sx1<=y.sx0||y.sx1<=i.sx0||i.sy1<=y.sy0||y.sy1<=i.sy0)continue;const E=Math.max(i.sx0,y.sx0),_=Math.max(i.sy0,y.sy0),m=g(Math.floor(E/q),Math.floor(_/q));if(b.get(m)!==r)continue;const S=at(i.box,y.box,s),v=at(y.box,i.box,s);S&&!v?a[l].push(n):v&&!S?a[n].push(l):i.model!==0&&i.model===y.model&&i.part!==y.part&&(i.part<y.part?a[l].push(n):a[n].push(l))}}const d=[],M=new Uint8Array(h),z=r=>{const f=o[r].members;f.length>1&&f.sort((n,i)=>t[n].key-t[i].key||n-i);for(const n of f)d.push(n)},u=r=>{const f=[r],n=[0];for(M[r]=1;f.length;){const i=f[f.length-1],x=a[i];n[n.length-1]===0&&x.length>1&&x.sort((y,E)=>c[y]-c[E]);const l=n[n.length-1];if(l<x.length){n[n.length-1]=l+1;const y=x[l];M[y]===0&&(M[y]=1,f.push(y),n.push(0));continue}M[i]=2,z(i),f.pop(),n.pop()}};for(const r of p)M[r]===0&&u(r);return d},V=Array.from({length:64},()=>({x:0,y:0})),kt={x:0,y:0},zt=(t,s,o=nt)=>{const e=[],h=Array.from({length:rt},ct);let p=0;const[c,a,b]=o,g=(u,r)=>{const f=u.def,n=f.pivot??[0,0,0],i=u.scale,x=Math.cos(u.angle),l=Math.sin(u.angle);let y=1/0,E=-1/0,_=1/0,m=-1/0,S=1/0,v=-1/0;for(const L of f.faces)for(const I of L.verts){const R=(I[0]-n[0])*i,k=(I[1]-n[1])*i,w=R*x-k*l+u.x,A=R*l+k*x+u.y,N=(I[2]-n[2])*i+u.z;w<y&&(y=w),w>E&&(E=w),A<_&&(_=A),A>m&&(m=A),N<S&&(S=N),N>v&&(v=N)}y===1/0&&(y=E=u.x,_=m=u.y,S=v=u.z),r.x0=y,r.x1=E,r.y0=_,r.y1=m,r.z0=S,r.z1=v},d=(u,r,f)=>{const n=u.box;let i=1/0,x=-1/0,l=1/0,y=-1/0;for(let E=0;E<8;E++){const _=s(E&1?n.x1:n.x0,E&2?n.y1:n.y0,E&4?n.z1:n.z0,r,f,kt);_.x<i&&(i=_.x),_.x>x&&(x=_.x),_.y<l&&(l=_.y),_.y>y&&(y=_.y)}u.sx0=i-2,u.sx1=x+2,u.sy0=l-2,u.sy1=y+2},M=(u,r,f)=>{if(u.def){const n=u.def,i=n.pivot??[0,0,0],x=u.scale,l=Math.cos(u.angle),y=Math.sin(u.angle),E=i[0],_=i[1],m=i[2];for(const S of n.faces){if(S.normal){const[k,w]=S.normal;if((k*l-w*y)*c+(k*y+w*l)*a<=0)continue}else if(S.normal3d){const[k,w,A]=S.normal3d;if((k*l-w*y)*c+(k*y+w*l)*a+A*b<=0)continue}const v=S.verts;for(let k=0;k<v.length;k++){const w=(v[k][0]-E)*x,A=(v[k][1]-_)*x;s(w*l-A*y+u.x,w*y+A*l+u.y,(v[k][2]-m)*x+u.z,r,f,V[k])}let L=0,I=0;const R=v.length;for(let k=0;k<R;k++)L+=V[k].x,I+=V[k].y;L/=R,I/=R,t.beginPath();for(let k=0;k<R;k++){const w=V[k].x-L,A=V[k].y-I,N=Math.hypot(w,A)||1,gt=L+w*(1+z.grow/N),_t=I+A*(1+z.grow/N);k===0?t.moveTo(gt,_t):t.lineTo(gt,_t)}t.closePath(),t.fillStyle=(u.colors&&u.colors[S.id])??S.color,t.fill(),S.stroke&&(t.strokeStyle=S.stroke,t.lineWidth=S.strokeWidth??1,t.stroke())}}u.drawFn&&u.drawFn(r,f)},z={view:o,grow:.5,add(u,r){const{x:f,y:n,z:i=0,angle:x=0,scale:l=1,colors:y,drawFn:E,depth:_,bounds:m,group:S,model:v,part:L}=r,I=p<rt?h[p++]:ct();I.def=u,I.x=f,I.y=n,I.z=i,I.angle=x,I.scale=l,I.colors=y,I.depth=_??f*c+n*a+i*b,I.drawFn=E??null,I.group=S??0,I.model=v??0,I.part=L??0,m?Object.assign(I.box,m):u?g(I,I.box):Object.assign(I.box,{x0:f,x1:f,y0:n,y1:n,z0:i,z1:i}),e.push(I)},flush(u,r,f){for(const l of e)d(l,u,r);let n=e;if(f){const l=-U,y=-U,E=f.w+U,_=f.h+U;n=e.filter(m=>m.sx1>=l&&m.sx0<=E&&m.sy1>=y&&m.sy0<=_);for(const m of n)m.sx0=Math.max(m.sx0,l),m.sx1=Math.min(m.sx1,E),m.sy0=Math.max(m.sy0,y),m.sy1=Math.min(m.sy1,_)}const i=n.length,x=It(n.map(l=>({box:l.box,sx0:l.sx0,sx1:l.sx1,sy0:l.sy0,sy1:l.sy1,key:l.depth,group:l.group,model:l.model,part:l.part})),o);for(let l=0;l<i;l++)M(n[x[l]],u,r);e.length=0,p=0}};return z};let Z=1;const it=()=>(Z=Z>=1073741823?1:Z+1,Z),Et=t=>t,lt=(t,s,o,e)=>{const[h,p,c]=s,[a,b,g]=o,d=Math.cos(e),M=Math.sin(e),z=1-d;return t.map(([u,r,f])=>{const n=u-h,i=r-p,x=f-c,l=a*n+b*i+g*x;return[h+n*d+(b*x-g*i)*M+a*l*z,p+i*d+(g*n-a*x)*M+b*l*z,c+x*d+(a*i-b*n)*M+g*l*z]})},vt={light:[-.267,.535,.802],ambient:.82,diffuse:.18},Pt=t=>{if(t.length<3)return null;let s=0,o=0,e=0;for(let p=0;p<t.length;p++){const c=t[p],a=t[(p+1)%t.length];s+=(c[1]-a[1])*(c[2]+a[2]),o+=(c[2]-a[2])*(c[0]+a[0]),e+=(c[0]-a[0])*(c[1]+a[1])}const h=Math.sqrt(s*s+o*o+e*e);return h<1e-12?null:[s/h,o/h,e/h]},St=(t,s)=>{if(!t)return 1;const[o,e,h]=s.light,p=Math.hypot(o,e,h)||1,c=(t[0]*o+t[1]*e+t[2]*h)/p;return s.ambient+s.diffuse*Math.max(0,c)},wt=(t,s)=>{if(Math.abs(s-1)<.002)return t;const o=parseInt(t.slice(1),16),e=Math.min(255,Math.round((o>>16&255)*s)),h=Math.min(255,Math.round((o>>8&255)*s)),p=Math.min(255,Math.round((o&255)*s));return"#"+(e<<16|h<<8|p).toString(16).padStart(6,"0")},At=(t,s)=>{const[[o,e],[h,p]]=s([[0,0,0],[t[0],t[1],0]]),c=h-o,a=p-e,b=Math.sqrt(c*c+a*a);return b>1e-9?[c/b,a/b]:t},Lt=(t,s,o)=>{const e=t.rotate,h=s[e.param??""]??0,p=o([e.pivot])[0];return c=>lt(o(c),p,e.axis,h)},ht=(t,s,o,e,h,p)=>{const c=t.rotate?Lt(t,s,o):o;for(const a of t.faces??[]){if(a.type==="line"){const[z,u]=c([a.verts[0],a.verts[1]]);p.push({kind:"line",v0:z,v1:u,face:a});continue}const b=c(a.verts),g=Pt(b),d=wt(a.color,a.shade??St(g,e)),M={id:a.id??"",verts:b,color:d};a.normal?M.normal=At(a.normal,c):g&&(M.normal3d=g),h.push(M)}for(const a of t.lights??[]){const[b]=c([[a.x,a.y,a.z]]);p.push({kind:"light",lx:b[0],ly:b[1],lz:b[2],light:a})}for(const a of t.children??[])ht(a,s,c,e,h,p)},ft=t=>!!t.rotate||(t.children??[]).some(ft),Ot=(t,s,o,e,h,p=vt)=>{const{x:c,y:a,z:b=0,angle:g=0,scale:d=1}=o,M=Math.cos(g),z=Math.sin(g),[u,r,f]=e.view,n=(x,l,y)=>(c+(x*M-l*z)*d)*u+(a+(x*z+l*M)*d)*r+(b+y*d)*f,i=it();t.nodes.forEach((x,l)=>{const y=[];ht(x,s,Et,p,y,[]);let _=c*u+a*r+b*f;if(x.depthAnchor){const[m,S,v=0]=x.depthAnchor;_=n(m,S,v)}if(ft(x)){const m=y.map((v,L)=>{let I=0,R=0,k=0;for(const A of v.verts)I+=A[0],R+=A[1],k+=A[2];const w=v.verts.length;return{face:v,key:n(I/w,R/w,k/w)+L*1e-12}});m.sort((v,L)=>v.key-L.key);const S=it();m.forEach((v,L)=>{e.add({id:t.id,faces:[v.face]},{...o,depth:_+L*1e-9,group:S,model:i,part:l})})}else y.length&&e.add({id:t.id,faces:y},{...o,depth:_,model:i,part:l})})},W=22*Math.PI/180,D=[0,-Math.sin(W),Math.cos(W)],Rt=-(Math.PI/2-W)+.06,jt=-(Math.acos(.33)-W),Tt=Math.cos(W),Ft=Math.sin(W),Ct=t=>(s,o,e,h,p,c={x:0,y:0})=>(c.x=t.w/2+(s-h)*t.zoom,c.y=t.h/2-((o-p)*Tt+e*Ft)*t.zoom,c),Dt={light:[-.45,D[1]+.35,D[2]],ambient:.62,diffuse:.45},Bt={light:D,ambient:.72,diffuse:.4},Gt=8,Nt={1:{lat:6,lon:10},2:{lat:10,lon:18},3:{lat:16,lon:28}},$t=t=>t<4?0:t<24?1:t<90?2:3,O=(t,s)=>[Math.cos(t)*Math.cos(s),Math.cos(t)*Math.sin(s),Math.sin(t)],J=(t,s,o)=>Math.sin(3*s+1.3+o)*Math.cos(2*t+o*.7)+.6*Math.sin(5*s-2*t+.5+o*1.9)+.3*Math.sin(9*s+4*t+o*3.1),qt=(t,s,o)=>{const e=t.colors,h=Math.abs(s);switch(t.surface){case"sun":return J(s,o,4)>.9?e[1]:e[0];case"rock":return J(s,o,2)>.4?e[1]:e[0];case"clouds":return Math.sin(s*7+Math.sin(o*2)*.8)>.3?e[1]:e[0];case"earth":return h>1.05?e[2]:J(s,o,0)>.55?e[1]:e[0];case"mars":return h>1.2?e[2]:J(s,o,5)>.5?e[1]:e[0];case"bands":return e[2]&&s<-.25&&s>-.55&&Math.cos(o-1)>.85?e[2]:Math.sin(s*9)>0?e[0]:e[1];case"ice":return Math.sin(s*5)>.6?e[1]:e[0]}},Wt=(t,s,o)=>{const e=[];for(let h=0;h<s;h++){const p=-Math.PI/2+h/s*Math.PI,c=-Math.PI/2+(h+1)/s*Math.PI;for(let a=0;a<o;a++){const b=a/o*Math.PI*2,g=(a+1)/o*Math.PI*2;let d;h===0?d=[O(p,0),O(c,g),O(c,b)]:h===s-1?d=[O(p,b),O(p,g),O(c,0)]:d=[O(p,b),O(p,g),O(c,g),O(c,b)],e.push({id:`s${h}_${a}`,verts:d,color:qt(t,(p+c)/2,(b+g)/2)})}}return e},Vt=(t,s)=>{const o=t.ring,e=[],h=[],p=c=>lt([c],[0,0,0],[1,0,0],jt)[0];for(let c=0;c<s;c++){const a=c/s*Math.PI*2,b=(c+1)/s*Math.PI*2,g=(z,u)=>p([Math.cos(u)*z,Math.sin(u)*z,0]),d={id:`r${c}`,verts:[g(o.inner,a),g(o.outer,a),g(o.outer,b),g(o.inner,b)],color:o.color,shade:c%2===0?1:.94},M=g((o.inner+o.outer)/2,(a+b)/2);(M[0]*D[0]+M[1]*D[1]+M[2]*D[2]<0?e:h).push(d)}return{back:{faces:e},front:{faces:h}}},Ht=(t,s)=>{const{lat:o,lon:e}=Nt[s],h={rotate:{pivot:[0,0,0],axis:[0,0,1],param:"spin"},children:[{rotate:{pivot:[0,0,0],axis:[1,0,0],param:"tilt"},faces:Wt(t,o,e)}]};if(!t.ring)return{version:3,id:`${t.id}_lod${s}`,nodes:[h]};const{back:p,front:c}=Vt(t,e*2);return{version:3,id:`${t.id}_lod${s}`,nodes:[p,h,c]}},dt=new Map,Ut=(t,s)=>{const o=`${t.id}:${s}`;let e=dt.get(o);return e||(e=Ht(t,s),dt.set(o,e)),e},ut=100,C={habitability:"lethal",growth:0,resources:0,regen:0},yt=(t,s,o,e)=>({habitability:t,growth:s,resources:o*ut,regen:e*ut}),j=(t,s,o)=>yt("harsh",t,s,o),T=(t,s,o,e)=>({parent:t,distance:1.5+.45*Math.sqrt(s),period:Math.sign(o)*30*Math.sqrt(Math.abs(o)),phase:e}),Kt=[{id:"sun",orbit:null,radiusEarth:109,surface:"sun",colors:["#ffd23a","#ffb42a"],biosphere:C},{id:"mercury",orbit:{a:.38709927,e:.20563593,L:252.2503235,varpi:77.45779628},radiusEarth:.383,surface:"rock",colors:["#9a9590","#6f6b67"],biosphere:C},{id:"venus",orbit:{a:.72333566,e:.00677672,L:181.9790995,varpi:131.60246718},radiusEarth:.949,surface:"clouds",colors:["#e8cf8f","#d6b26a"],biosphere:C},{id:"earth",orbit:{a:1.00000261,e:.01671123,L:100.46457166,varpi:102.93768193},radiusEarth:1,surface:"earth",colors:["#2a64c8","#3f9a48","#f4f8ff"],biosphere:yt("good",.05,13e4,2e3)},{id:"moon",orbit:null,moon:T("earth",60.3,27.32,120),radiusEarth:.273,surface:"rock",colors:["#b8b5ad","#8a877f"],biosphere:j(.006,3e3,40)},{id:"mars",orbit:{a:1.52371034,e:.0933941,L:-4.55343205,varpi:-23.94362959},radiusEarth:.532,surface:"mars",colors:["#c4572e","#8e3a1f","#f4f0ea"],biosphere:j(.012,8e3,150)},{id:"jupiter",orbit:{a:5.202887,e:.04838624,L:34.39644051,varpi:14.72847983},radiusEarth:11.21,surface:"bands",colors:["#d9b98c","#a87a52","#c4553a"],biosphere:C},{id:"io",orbit:null,moon:T("jupiter",5.9,1.77,10),radiusEarth:.286,surface:"rock",colors:["#e8d45a","#c07a2a"],biosphere:C},{id:"europa",orbit:null,moon:T("jupiter",9.4,3.55,100),radiusEarth:.245,surface:"ice",colors:["#efe8dc","#b58a64"],biosphere:j(.01,6e3,120)},{id:"ganymede",orbit:null,moon:T("jupiter",15,7.15,200),radiusEarth:.413,surface:"rock",colors:["#a59a8a","#776d60"],biosphere:j(.008,5e3,80)},{id:"callisto",orbit:null,moon:T("jupiter",26.3,16.69,300),radiusEarth:.378,surface:"rock",colors:["#6e655a","#4d463e"],biosphere:j(.009,5e3,90)},{id:"saturn",orbit:{a:9.53667594,e:.05386179,L:49.95424423,varpi:92.59887831},radiusEarth:9.45,surface:"bands",colors:["#e6d3a0","#c9ad74"],ring:{inner:1.24,outer:2.27,color:"#cbb98a"},biosphere:C},{id:"enceladus",orbit:null,moon:T("saturn",3.95,1.37,40),radiusEarth:.04,surface:"ice",colors:["#f6f8fb","#cfd8e2"],biosphere:j(.01,2500,60)},{id:"titan",orbit:null,moon:T("saturn",20.3,15.95,220),radiusEarth:.404,surface:"clouds",colors:["#d9a04a","#b97f32"],biosphere:j(.015,15e3,300)},{id:"uranus",orbit:{a:19.18916464,e:.04725744,L:313.23810451,varpi:170.9542763},radiusEarth:4.01,surface:"ice",colors:["#9fdbe0","#83c4cc"],biosphere:C},{id:"titania",orbit:null,moon:T("uranus",17.1,8.71,75),radiusEarth:.124,surface:"rock",colors:["#a9a39c","#7f7a73"],biosphere:j(.006,2e3,30)},{id:"neptune",orbit:{a:30.06992276,e:.00859048,L:-55.12002969,varpi:44.96476227},radiusEarth:3.88,surface:"ice",colors:["#4a73e0","#3456b8"],biosphere:C},{id:"triton",orbit:null,moon:T("neptune",14.3,-5.88,160),radiusEarth:.212,surface:"ice",colors:["#e6cfc8","#bfa49b"],biosphere:j(.005,2500,25)}].map(t=>({...t,system:"sol"})),Q=360,pt=2/3,H=[{id:"sun",orbit:0,period:1,r:13},{id:"mercury",orbit:25,period:6,r:2.4},{id:"venus",orbit:36,period:10,r:3.8},{id:"earth",orbit:50,period:16,r:4.2,pop:.72,res:.55},{id:"moon",orbit:8,period:3,r:1.3,parent:"earth"},{id:"mars",orbit:64,period:26,r:3,pop:.3,res:.85},{id:"jupiter",orbit:86,period:60,r:9},{id:"saturn",orbit:110,period:100,r:7}],xt=t=>Kt.find(s=>s.id===t),Zt="#ffa02e",Jt="#3fd3c6",X=document.getElementById("sky"),P=X.getContext("2d"),F={zoom:1,w:Q,h:Q*pt},Y=Ct(F),st=zt(P,Y,D);let B=1,G=1;const tt=window.matchMedia("(prefers-reduced-motion: reduce)"),bt=()=>{B=window.devicePixelRatio||1,F.w=X.clientWidth||Q,F.h=F.w*pt,G=F.w/Q,X.width=Math.round(F.w*B),X.height=Math.round(F.h*B),P.setTransform(B,0,0,B,0,0),st.grow=.5/B};bt(),window.addEventListener("resize",()=>{bt(),tt.matches&&ot(0)});let Mt=7;const et=()=>(Mt=Mt*16807%2147483647)/2147483647,Qt=Array.from({length:90},()=>({x:et(),y:et(),p:et()*Math.PI*2})),Xt=(t,s,o)=>{P.beginPath();for(let e=0;e<=96;e++){const h=e/96*Math.PI*2,p=Y(t+Math.cos(h)*o,s+Math.sin(h)*o,0,0,0);e===0?P.moveTo(p.x,p.y):P.lineTo(p.x,p.y)}P.stroke()},mt=(t,s,o,e,h)=>{P.lineWidth=1,P.beginPath(),P.arc(t,s,o,0,Math.PI*2),P.strokeStyle="rgba(255, 255, 255, 0.08)",P.stroke(),P.beginPath(),P.arc(t,s,o,-Math.PI/2,-Math.PI/2+Math.PI*2*e),P.strokeStyle=h,P.stroke()};function ot(t){const s=t/1e3,{w:o,h:e}=F;P.fillStyle="#020205",P.fillRect(0,0,o,e);for(const d of Qt){const M=.3+.35*Math.sin(s*1.5+d.p);P.fillStyle=`rgba(200, 215, 255, ${M.toFixed(2)})`,P.fillRect(Math.round(d.x*o),Math.round(d.y*e),1,1)}const h=new Map;for(const d of H){const M=d.parent?h.get(d.parent):{x:0,y:0},z=s/d.period*Math.PI*2+d.orbit;h.set(d.id,{x:M.x+Math.cos(z)*d.orbit*G,y:M.y+Math.sin(z)*d.orbit*G})}P.strokeStyle="rgba(140, 170, 230, 0.18)",P.lineWidth=1;for(const d of H)d.orbit>0&&!d.parent&&Xt(0,0,d.orbit*G);const p=xt("sun"),c=H[0].r*G,a=Y(0,0,0,0,0),b=P.createRadialGradient(a.x,a.y,c*.6,a.x,a.y,c*3.2);b.addColorStop(0,p.colors[0]+"59"),b.addColorStop(1,p.colors[1]+"00"),P.fillStyle=b,P.fillRect(a.x-c*3.2,a.y-c*3.2,c*6.4,c*6.4);const g=s/Gt%1*Math.PI*2;for(const d of H){const M=xt(d.id),z=h.get(d.id),u=d.r*G,r=Math.max(2,$t(u*B));Ot(Ut(M,r),{spin:M.id==="venus"?-g:g,tilt:Rt},{x:z.x,y:z.y,z:0,scale:u},st,void 0,M.id==="sun"?Bt:Dt)}st.flush(0,0,F);for(const d of H){if(d.pop===void 0)continue;const M=Y(h.get(d.id).x,h.get(d.id).y,0,0,0),z=d.r*G;mt(M.x,M.y,z+2,d.pop,Zt),d.res!==void 0&&mt(M.x,M.y,z+4,d.res,Jt)}tt.matches||requestAnimationFrame(ot)}requestAnimationFrame(ot),tt.addEventListener("change",()=>{tt.matches||requestAnimationFrame(ot)})})();
         </script>
         <!-- sky:end -->
     </body>

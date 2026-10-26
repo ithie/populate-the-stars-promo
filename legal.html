@@ -4,7 +4,19 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <title>Populate the Stars – Legal</title>
+        <meta name="description" content="Imprint and privacy policy of the game Populate the Stars and of this website." />
         <meta name="theme-color" content="#020205" />
+        <link rel="alternate" hreflang="de" href="https://ithie.github.io/populate-the-stars-promo/legal.html?lang=de" />
+        <link rel="alternate" hreflang="en" href="https://ithie.github.io/populate-the-stars-promo/legal.html?lang=en" />
+        <link rel="alternate" hreflang="fr" href="https://ithie.github.io/populate-the-stars-promo/legal.html?lang=fr" />
+        <link rel="alternate" hreflang="es" href="https://ithie.github.io/populate-the-stars-promo/legal.html?lang=es" />
+        <link rel="alternate" hreflang="pt-PT" href="https://ithie.github.io/populate-the-stars-promo/legal.html?lang=pt" />
+        <link rel="alternate" hreflang="pt-BR" href="https://ithie.github.io/populate-the-stars-promo/legal.html?lang=pt-BR" />
+        <link rel="alternate" hreflang="x-default" href="https://ithie.github.io/populate-the-stars-promo/legal.html" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Populate the Stars" />
+        <meta property="og:title" content="Populate the Stars – Legal" />
+        <meta property="og:image" content="https://ithie.github.io/populate-the-stars-promo/assets/og-image.png" />
         <link rel="icon" type="image/png" href="assets/icon.png" />
         <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
         <style>
@@ -20,7 +32,7 @@
             :root {
                 --bg: #020205;
                 --text: #9aa6c0;
-                --dim: #5d6680;
+                --dim: #7a84a0;
                 --pop: #ffa02e;
                 --res: #3fd3c6;
                 --gold: #ffcf40;
@@ -67,6 +79,17 @@
 
             a:hover {
                 color: var(--res);
+            }
+
+            :focus-visible {
+                outline: 2px solid var(--res);
+                outline-offset: 4px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    transition: none !important;
+                }
             }
 
             /* ── Legal ── */
@@ -441,6 +464,8 @@
                     a.href = `?lang=${l.code}`;
                     a.textContent = l.label;
                     a.hreflang = l.code;
+                    // The label is in its own language — screen readers switch voices.
+                    a.lang = l.code;
                     if (l.code === lang) {
                         a.className = 'active';
                         a.setAttribute('aria-current', 'page');
